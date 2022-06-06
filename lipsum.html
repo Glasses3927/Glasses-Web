@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<meta charset="Shift_JIS">
+        <title>ナゾ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/lipsum.css">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2
+		?family=Noto+Sans+JP:wght@400;500
+		&family=Sawarabi+Gothic
+		&family=Noto+Serif+JP:wght@400;600
+		&family=Josefin+Sans
+		&family=Playfair+Display:wght@500
+		&family=Open+Sans:wght@300;400
+		&display=swap" rel="stylesheet">
+				
+		<script src="https://kit.fontawesome.com/ece971f498.js" crossorigin="anonymous"></script>
+
+        <link rel="shortcut icon" href="image/logo.PNG" type="image/png">
+    </head>
+	
+    <body onclick="incrementClick()">
+	
+		<div id="container">
+				<header id="header">
+				<ul class="header_logo">
+					<li><a href="index.html"><img src="image/logo_2.png" alt="logo"></a></li>
+				</ul>
+			
+				<ul class="header_link">
+					<li><a href="profile.html">PROFILE</a></li>
+					<li><a href="lipsum.html">ナゾ</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			
+				<div class="openbtn"><span></span><span>Menu</span><span></span></div>
+				<nav id="g-nav">
+					<div id="g-nav-list">
+						<ul>
+							<li><a href="profile.html">PROFILE</a></li> 
+							<li><a href="lipsum.html">ナゾ</a></li> 
+							<li><a href="blog.html">BLOG</a></li> 
+							<li><a href="contact.html">CONTACT</a></li> 
+						</ul>
+					</div>
+				</nav>
+			</header>
+
+		
+			<section class="lipsum" id="lipsum1">
+				<div class="lipsum-theme">
+					<p class="en">Hello World!</p>
+					<p class="ja"></p>
+				</div>
+				<div class="lipsum-content">
+					<div>　さて．<br>
+					　これを見ているということは，文字コード変更したってことですよね．<br>
+					　よくわかりましたね．とりあえず，おめでとうございます．<br>
+					　　（一応，情報の高校範囲に文字化けについての記載があるはず．）</div>
+					<div>　文字化け復元サイト等でもできないことはありませんが，おそらく，完全には復元できないはずです．<br>
+					　GoogleChromeであれば，元からそういう機能は搭載されていないはずなので，新たに拡張機能をインストールしたということになります．（おそらく，Charsetをインストールしたと思います．他の拡張機能もあるようですが…）<br>
+					　お疲れさまでした．ここまで来たあなたは情報関係の方でしょうかね？</div>
+					<div>　ここまで，とりあえず「文字化け　対処法」等でググり，言われた通りにやってみたらできちゃった人に向けて，一応簡単な解説をしておきます．ご存じの方は飛ばしてもろて．ややこしいのが嫌いな人も飛ばしてもろて．</div>
+					<div class="description">　まず，「コンピュータは0と1から出来ている」みたいなことを聞いたことはありませんか？<br>
+					　私たち人間のように，ひらがなカタカナ，アルファベットを扱うことが出来ません．「電気が通っているか（1）」「通っていないか（0）」の２つしか判別出来ないんです．<br>
+					　ならば，なぜこのように文字を表示できているのか．実は，「文字」と「0と1の羅列」を対応させているんです．この対応の仕方を，「文字コード」といいます．<br>
+					　例として，「UTF-8」と「Shift_JIS」という文字コードを考えてみましょう．「UTH-8」では，「あ」を「111000111000000110000010」と，「Shift_JIS」では「あ」を「1000001010100000」と対応させています．<br>
+					　（ここで，0と1の羅列を毎回書くのはめんどくさいので，前者を「E38182」，後者を「82A0」と書くことにします．2進数を16進数に変えただけです．）<br>
+					　このWebサイトは，UTF-8という文字コードで作成しています．つまり，「あ」を表示したければ，プログラムに「E38182」と書けばいいのです．<br>
+					　ここで重要な点が一つ．あなたのパソコンでは，プログラムに書かれた「E38182」を文字に変換しなければいけません．文字コードは複数あります．どの文字コードで変換してあげればよいか，あなたのパソコンは分かりません．<br>
+					　そこで，「このプログラムは～という文字コードで作成されました」というような情報をプログラムに一緒に付け加えておくんです．そうすると，あなたのパソコンはその文字コードで，文字に変換していきます．<br>
+					　では，「Shift_JISで書かれています」とウソの情報を入れておくと，どうなるでしょうか．<br>
+					　そう，あなたのパソコンはShift_JISで文字に変換しようとします．上に書いたように，「UTF-8」と「Shift_JIS」では，「あ」に対応する0と1の文字列は異なります．つまり，「E38182」を，「UTF-8」では「あ」と対応しますが，「Shift_JIS」では他の文字と対応してしまうのです．<br>
+					　このサイトは，この仕組みを利用しました．ウソの情報を入れておいたんです．なので，無理やり「UTF-8」の文字コードで変換するようにしてあげないと，正常に表示されないんです．</div>
+					<div>　ここまでの努力と知識を褒め，労いの言葉をかけたところで，話を進めていきます．<br>
+					　上のヘッダー部分に，さっきまで明らかに文字化けしていた箇所があったと思います．いまこの文章が読めるということは，この文字化けしていたヘッダーの部分も読めてるってことですよね．<br>
+					　そういうことです．ここまできたあなたに，ナゾを解いてもらいます．<br>
+					　　（この最初の関門（文字化け関係）で半分以上脱落すると予想しています．だるまさんがころんだよりも，ハードでしたね笑）</div>
+					<div>　まぁ，ナゾを説いてほしくてこのサイトを作ったわけではありません．プログラミングをしたいだけです．<br>
+					　そのため，よくあるナゾではありません．QKや松丸くんみたいな天才がつくるクイズ/なぞなぞとは全く違います．ご了承ください．</div>
+					<div>　では，どんなナゾか．<br>
+					　実は，いろんな仕組みをこのサイトに施しました．僕の好きなように，好きなだけ．<br>
+					　ヒントは特にありません．思いつく限り，できる操作を片っ端からやってみてください．</div>
+					<div>　はい．つまり，ここでのナゾというのは，「表に出ていないからくり」みたいな風に捉えて下さい．<br>
+					　すなわち，「一見文章しか書かれていないように思えて，他にいろいろと…?!」ってことです．</div>
+					<div>では．</div>
+					<div>下にあるボックスに，あなたのニックネームとパスワードを入れてください．ニックネームは，第三者が個人を特定できないようなものにしてください．パスワードは「respects Glasses」です．コピペが楽だと思います．</div>
+					<form>
+						<div>
+							<label for="username"></label>
+							<input type="text" id="username" name="nickname" placeholder="ニックネーム" required>
+						</div>
+						<div>
+							<label for="pass"></label>
+							<input type="text" id="pass" name="keyword" placeholder="パスワード" size="30" required>
+						</div>
+						<input type="button" onclick="passandname()" value="GO">
+					</form>
+				</div>
+			</section>
+		
+		
+			<section class="intro center none-content" id="intro">
+				<div class="intro-content none-content" id="intro1">え？</div>
+				<div class="intro-content none-content" id="intro21">「</div>
+				<div class="intro-content none-content" id="intro22"></div>
+				<div class="intro-content none-content" id="intro23">　respects Glasses 」？</div>
+				<div class="intro-content none-content" id="intro3">そんな～照れるなぁ～（///^///）</div>
+				<div class="intro-content none-content" id="intro4">ウソです．さすがに冗談です．</div>
+				<div class="intro-content none-content" id="intro5">ナゾを解く準備はできましたか？</div>
+				<div class="intro-content none-content" id="intro6">では，</div>
+				<div class="intro-content none-content" id="intro7">健闘を</div>
+				<div class="intro-content none-content" id="intro8">祈ります．</div>
+			</section>
+		
+		
+			<section class="mys center none-content" id="mys" style="opacity: 1;">
+				<div>NOTHING</div>
+			</section>
+			<section class="mys center none-content" id="mys05">
+				<a href="https://twitter.com/share?url=https://onl.bz/2QeuHuu&text=Thank you for clicking this sharing button. You do not have to tweet this. Go back to the previous page. A new world is wating for you. . . ?" target="_blank" onclick="last()"><i class="fa-brands fa-twitter"></i></a>
+			</section>
+			<section class="mys center none-content" id="finished">
+				<div>左上に表示されている5文字を順に覚えて，右をクリックしてください．</div>
+				<a href="https://forms.gle/Zd1VFTAx6KPubxHs7"> → ||CLICK HERE||</a>
+			</section>
+
+		
+			<section class="mys none-content" id="mys01">
+				<div>右をクリックして→</div>
+				<button type="button" onclick="mys01f()">ココ</button>
+			</section>
+		
+		
+			<div class="solved  none-content" id="solved">
+				<ul>
+					<li><div class="ib">1:</div><div class="solve-content ib none-content" id="hide01">　Solved!「あ」</div></li>
+					<li><div class="ib">2:</div><div class="solve-content ib none-content" id="hide02">　Solved!「い」</div></li>
+					<li><div class="ib">3:</div><div class="solve-content ib none-content" id="hide03">　Solved!「し」</div></li>
+					<li><div class="ib">4:</div><div class="solve-content ib none-content" id="hide04">　Solved!「て」</div></li>
+					<li><div class="ib">5:</div><div class="solve-content ib none-content" id="hide05">　Solved!「す」</div></li>
+				</ul>
+			</div>
+		
+		
+
+		
+		
+			<section class="SNSlink none-content" id="SNSlink">
+				<div href="" class="btn btn-sns btn-sns--facebook" id="array1">
+					<i class="fa-brands fa-facebook-f"></i>
+				</div>			
+				<div href="" class="btn btn-sns btn-sns--twitter" id="array3">
+					<i class="fa-brands fa-twitter"></i>
+				</div>
+				<div href="" class="btn btn-sns btn-sns--instagram" id="array2">
+					<i class="fa-brands fa-instagram"></i>
+				</div>
+				<div href="" class="btn btn-sns btn-sns--youtube" id="array4">
+					<i class="fa-brands fa-youtube"></i>
+				</div>
+			</section>
+		
+			<footer id="footer">
+				<small class="copyright">&copy; 2022 Glässes All rights Reserved.</small>
+			</footer>
+		
+			<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script><!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+			<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+			<script src="move.js"></script>
+		</div>
+    </body>
+</html>
